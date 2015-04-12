@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 0ec26b555bf93b24cb25a52c6641d360
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: group
+    100002: group1
+    100004: group2
+    100006: group3
+    100008: group4
+    100010: group5
+    100012: group6
+    100014: group7
+    100016: group8
+    100018: group9
+    100020: imagePlane1
+    100022: pasted__group
+    100024: pasted__group 1
+    100026: pasted__group 2
+    100028: pasted__group 3
+    100030: pasted__group 4
+    100032: pasted__group1
+    100034: pasted__group4
+    100036: pasted__group4 1
+    100038: pasted__group4 2
+    100040: pasted__group5
+    100042: pasted__group5 1
+    100044: pasted__group5 2
+    100046: pasted__group6
+    100048: pasted__group6 1
+    100050: pasted__group7
+    100052: pasted__pasted__group
+    100054: pasted__pasted__group 1
+    100056: pasted__pasted__group 2
+    100058: pasted__pasted__group 3
+    100060: pasted__pasted__group 4
+    100062: pasted__pasted__group4
+    100064: pasted__pasted__group4 1
+    100066: pasted__pasted__group4 2
+    100068: pasted__pasted__group4 3
+    100070: pasted__pasted__group5
+    100072: pasted__pasted__group5 1
+    100074: pasted__pasted__group5 2
+    100076: pasted__pasted__group6
+    100078: pasted__pasted__pasted__group
+    100080: pasted__pasted__pasted__group 1
+    100082: pasted__pasted__pasted__group 2
+    100084: pasted__pasted__pasted__group 3
+    100086: pasted__pasted__pasted__group4
+    100088: pasted__pasted__pasted__group4 1
+    100090: pasted__pasted__pasted__group4 2
+    100092: pasted__pasted__pasted__group5
+    100094: pasted__pasted__pasted__pasted__group
+    100096: pasted__pasted__pasted__pasted__group 1
+    100098: pasted__pasted__pasted__pasted__group 2
+    100100: pasted__pasted__pasted__pasted__group4
+    100102: pasted__pasted__pasted__pasted__pasted__group
+    100104: pasted__pasted__pasted__pasted__pasted__pasted__pPlane1
+    100106: pasted__pasted__pasted__pasted__pasted__pPlane1
+    100108: pasted__pasted__pasted__pasted__pasted__pPlane1 1
+    100110: pasted__pasted__pasted__pasted__pasted__pPlane1 2
+    100112: pasted__pasted__pasted__pasted__pPlane1
+    100114: pasted__pasted__pasted__pasted__pPlane1 1
+    100116: pasted__pasted__pasted__pasted__pPlane1 2
+    100118: pasted__pasted__pasted__pasted__pPlane1 3
+    100120: pasted__pasted__pasted__pPlane1
+    100122: pasted__pasted__pasted__pPlane1 1
+    100124: pasted__pasted__pasted__pPlane1 2
+    100126: pasted__pasted__pasted__pPlane1 3
+    100128: pasted__pasted__pPlane1
+    100130: pasted__pasted__pPlane1 1
+    100132: pasted__pasted__pPlane1 2
+    100134: pasted__pPlane1
+    100136: pasted__pPlane1 1
+    100138: pCube1
+    100140: pCube2
+    100142: pCube3
+    100144: pCube4
+    100146: pCylinder1
+    100148: pCylinder2
+    100150: //RootNode
+    100152: pPlane1
+    100154: pPlane2
+    100156: transform1
+    100158: transform10
+    100160: transform11
+    100162: transform12
+    100164: transform13
+    100166: transform14
+    100168: transform15
+    100170: transform16
+    100172: transform17
+    100174: transform18
+    100176: transform19
+    100178: transform2
+    100180: transform20
+    100182: transform3
+    100184: transform4
+    100186: transform5
+    100188: transform6
+    100190: transform7
+    100192: transform8
+    100194: transform9
+    400000: group
+    400002: group1
+    400004: group2
+    400006: group3
+    400008: group4
+    400010: group5
+    400012: group6
+    400014: group7
+    400016: group8
+    400018: group9
+    400020: imagePlane1
+    400022: pasted__group
+    400024: pasted__group 1
+    400026: pasted__group 2
+    400028: pasted__group 3
+    400030: pasted__group 4
+    400032: pasted__group1
+    400034: pasted__group4
+    400036: pasted__group4 1
+    400038: pasted__group4 2
+    400040: pasted__group5
+    400042: pasted__group5 1
+    400044: pasted__group5 2
+    400046: pasted__group6
+    400048: pasted__group6 1
+    400050: pasted__group7
+    400052: pasted__pasted__group
+    400054: pasted__pasted__group 1
+    400056: pasted__pasted__group 2
+    400058: pasted__pasted__group 3
+    400060: pasted__pasted__group 4
+    400062: pasted__pasted__group4
+    400064: pasted__pasted__group4 1
+    400066: pasted__pasted__group4 2
+    400068: pasted__pasted__group4 3
+    400070: pasted__pasted__group5
+    400072: pasted__pasted__group5 1
+    400074: pasted__pasted__group5 2
+    400076: pasted__pasted__group6
+    400078: pasted__pasted__pasted__group
+    400080: pasted__pasted__pasted__group 1
+    400082: pasted__pasted__pasted__group 2
+    400084: pasted__pasted__pasted__group 3
+    400086: pasted__pasted__pasted__group4
+    400088: pasted__pasted__pasted__group4 1
+    400090: pasted__pasted__pasted__group4 2
+    400092: pasted__pasted__pasted__group5
+    400094: pasted__pasted__pasted__pasted__group
+    400096: pasted__pasted__pasted__pasted__group 1
+    400098: pasted__pasted__pasted__pasted__group 2
+    400100: pasted__pasted__pasted__pasted__group4
+    400102: pasted__pasted__pasted__pasted__pasted__group
+    400104: pasted__pasted__pasted__pasted__pasted__pasted__pPlane1
+    400106: pasted__pasted__pasted__pasted__pasted__pPlane1
+    400108: pasted__pasted__pasted__pasted__pasted__pPlane1 1
+    400110: pasted__pasted__pasted__pasted__pasted__pPlane1 2
+    400112: pasted__pasted__pasted__pasted__pPlane1
+    400114: pasted__pasted__pasted__pasted__pPlane1 1
+    400116: pasted__pasted__pasted__pasted__pPlane1 2
+    400118: pasted__pasted__pasted__pasted__pPlane1 3
+    400120: pasted__pasted__pasted__pPlane1
+    400122: pasted__pasted__pasted__pPlane1 1
+    400124: pasted__pasted__pasted__pPlane1 2
+    400126: pasted__pasted__pasted__pPlane1 3
+    400128: pasted__pasted__pPlane1
+    400130: pasted__pasted__pPlane1 1
+    400132: pasted__pasted__pPlane1 2
+    400134: pasted__pPlane1
+    400136: pasted__pPlane1 1
+    400138: pCube1
+    400140: pCube2
+    400142: pCube3
+    400144: pCube4
+    400146: pCylinder1
+    400148: pCylinder2
+    400150: //RootNode
+    400152: pPlane1
+    400154: pPlane2
+    400156: transform1
+    400158: transform10
+    400160: transform11
+    400162: transform12
+    400164: transform13
+    400166: transform14
+    400168: transform15
+    400170: transform16
+    400172: transform17
+    400174: transform18
+    400176: transform19
+    400178: transform2
+    400180: transform20
+    400182: transform3
+    400184: transform4
+    400186: transform5
+    400188: transform6
+    400190: transform7
+    400192: transform8
+    400194: transform9
+    2300000: pCube3
+    2300002: pCube4
+    2300004: pCylinder1
+    2300006: pCylinder2
+    2300008: pPlane2
+    3300000: pCube3
+    3300002: pCube4
+    3300004: pCylinder1
+    3300006: pCylinder2
+    3300008: pPlane2
+    4300000: pCylinder1
+    4300002: pCylinder2
+    4300004: pCube3
+    4300006: pCube4
+    4300008: pPlane2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
