@@ -90,6 +90,7 @@ public class CutoutController : MonoBehaviour {
 	}
 	
 	void beenShotAnim () {
+		enterTrigger = false;
 		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaultRot, Time.deltaTime * smooth);
 	}
 }
