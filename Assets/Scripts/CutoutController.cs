@@ -15,6 +15,7 @@ public class CutoutController : MonoBehaviour {
 
 	Vector3 defaultRot;
 	Vector3 popUpRotation;
+	float smooth;
 	
 	// Use this for initialization
 	void Start () {
@@ -34,6 +35,7 @@ public class CutoutController : MonoBehaviour {
 
 		defaultRot = transform.eulerAngles;
 		popUpRotation = new Vector3 (defaultRot.x + 90, defaultRot.y, defaultRot.z);
+		smooth = 2.0f;
 	}
 	
 	// Update is called once per frame
