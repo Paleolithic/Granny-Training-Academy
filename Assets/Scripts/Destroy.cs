@@ -4,7 +4,6 @@ using System.Collections;
 public class Destroy : MonoBehaviour {
 
 	public float time;
-	public bool hitObject;
 	public GameObject pic;
 
 	// Use this for initialization
@@ -18,17 +17,20 @@ public class Destroy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
 		//If the bullet collides with something destroy it
-		Destroy (this.gameObject);
-		hitObject = true;
-		//For Instatiating bulletHole texture..
-		//Rigidbody clone = Instantiate(pic, transform.position, transform.rotation) as Rigidbody;
+		if (collision.gameObject.tag.equals ("cutOut")) {
+			collision.gameObject.GetComponent<CutoutController> ().beenShot = true;
+		}
 
+		//For Instatiating bulletHole texture..
+		//GameObject clone = Instantiate (pic, transform.position, transform.rotation) as GameObject;
+		//clone.transform.parent = collision.gameObject.transform;
+		Destroy (this.gameObject);
 
 	}
 }
