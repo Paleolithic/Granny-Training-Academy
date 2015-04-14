@@ -11,7 +11,6 @@ public class Destroy : MonoBehaviour {
 	{
 		//If the gameobject hasnt hit anything for "time" then destroy
 		Destroy (this.gameObject, time);
-		hitObject = false;
 	}
 	
 	// Update is called once per frame
@@ -23,7 +22,7 @@ public class Destroy : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		//If the bullet collides with something destroy it
-		if (collision.gameObject.tag.equals ("cutOut")) {
+		if (collision.gameObject.tag == "cutOut") {
 			collision.gameObject.GetComponent<CutoutController> ().beenShot = true;
 		}
 

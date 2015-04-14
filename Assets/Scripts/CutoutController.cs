@@ -8,9 +8,10 @@ public class CutoutController : MonoBehaviour {
 	public bool slideRight;
 	int animationCase;
 
-	bool beenShot;
+	public bool beenShot;
 
 	bool firstHit;
+	bool enterTrigger;
 	bool firstTrigger;
 
 	Vector3 defaultRot;
@@ -34,21 +35,25 @@ public class CutoutController : MonoBehaviour {
 		}
 
 		defaultRot = transform.eulerAngles;
-		popUpRotation = new Vector3 (defaultRot.x + 90, defaultRot.y, defaultRot.z);
+		popUpRotation = new Vector3 (defaultRot.x - 90, defaultRot.y, defaultRot.z);
 		smooth = 2.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (beenShot && firstHit) {
-			//get rid of hitbox (so cant be shot on ground)
-			gameObject.collider.enabled = false;
-			beenShotAnim();
-			firstHit = false;
+		if (transform.parent.GetComponent<AreaTrigger> ().enter) {
+			enterTrigger = true;
 		}
-		if (transform.parent.GetComponent<AreaTrigger> ().enter && firstTrigger) {
-			//enable hitbox
-			gameObject.collider.enabled = true;
+		if (beenShot) {
+			beenShotAnim();
+		
+			if (firstHit) {
+				//get rid of hitbox (so cant be shot on ground)
+				gameObject.collider.enabled = false;
+				firstHit = false;
+			}
+		}
+		if (enterTrigger) {
 			switch (animationCase)
 			{
 			case 1:
@@ -61,7 +66,13 @@ public class CutoutController : MonoBehaviour {
 				slideRightAnim();
 				break;
 			}
-			firstTrigger = false;
+
+			if (firstTrigger) {
+				//enable hitbox
+				gameObject.collider.enabled = true;
+				firstTrigger = false;
+
+			}
 		}
 	}
 	
