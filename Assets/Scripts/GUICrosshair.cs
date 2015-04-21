@@ -3,14 +3,14 @@ using System.Collections;
 
 public class GUICrosshair : MonoBehaviour {
 	
-	public Texture2D crosshairTexture;
+	//public Texture2D crosshairTexture;
 	Rect position;
-	static bool OriginalOn = true;
+	public static bool OriginalOn = true;
 	
 	// Use this for initialization
 	void Start () {
 		Screen.showCursor = false;
-		position = new Rect((Screen.width - crosshairTexture.width) / 2, (Screen.height - crosshairTexture.height) /2, crosshairTexture.width, crosshairTexture.height);
+		//position = new Rect((Screen.width - crosshairTexture.width) / 2, (Screen.height - crosshairTexture.height) /2, crosshairTexture.width, crosshairTexture.height);
 	}
 	
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class GUICrosshair : MonoBehaviour {
 	{
 		if(OriginalOn == true)
 		{
-			GUI.DrawTexture(position, crosshairTexture);
+			//GUI.DrawTexture(position, crosshairTexture);
 		}
 	}
 }
