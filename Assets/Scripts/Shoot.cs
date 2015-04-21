@@ -13,6 +13,8 @@ public class Shoot : MonoBehaviour {
 	float muzzleTimer;
 	bool shot;
 
+	public GameObject pistolObj;
+
 	//private Vector3 targetAngles;
 
 	// Use this for initialization
@@ -34,8 +36,12 @@ public class Shoot : MonoBehaviour {
 			shot = false;
 		}
 
+
+
 		if (Input.GetMouseButtonDown (0)) 
 		{
+			pistolObj.GetComponent<gunRecoil>().recoil += 0.1f;
+
 			//Creates rigidbody object from prefab
 			Rigidbody clone = Instantiate(projectile, transform.position, this.gameObject.transform.rotation) as Rigidbody;
 			clone.transform.parent = this.transform;

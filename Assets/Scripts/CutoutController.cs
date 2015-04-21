@@ -14,29 +14,40 @@ public class CutoutController : MonoBehaviour {
 	bool enterTrigger;
 	bool firstTrigger;
 
-	Vector3 defaultRot;
+	Vector3 downRotation;
 	Vector3 popUpRotation;
 	float smooth;
+
+	Vector3 leftEndPos;
+	Vector3 rightEndPos;
 	
 	// Use this for initialization
 	void Start () {
 		animationCase = 0;
 		firstHit = true;
 		firstTrigger = true;
+		beenShot = false;
 		//cant be shot until triggered
 		gameObject.collider.enabled = false;
+
+		downRotation = transform.eulerAngles;
+		popUpRotation = new Vector3 (downRotation.x - 90, downRotation.y, downRotation.z);
+		smooth = 2.0f;
+		
+		leftEndPos = new Vector3 (transform.position.x - 5f, transform.position.y, transform.position.z);
+		rightEndPos = new Vector3 (transform.position.x + 5f, transform.position.y, transform.position.z);
 
 		if (popUp) {
 			animationCase = 1;
 		} else if (slideLeft) {
+			downRotation = new Vector3(transform.eulerAngles.x + 90, transform.eulerAngles.y, transform.eulerAngles.z);
 			animationCase = 2;
 		} else if (slideRight) {
+			downRotation = new Vector3(transform.eulerAngles.x + 90, transform.eulerAngles.y, transform.eulerAngles.z);
 			animationCase = 3;
 		}
 
-		defaultRot = transform.eulerAngles;
-		popUpRotation = new Vector3 (defaultRot.x - 90, defaultRot.y, defaultRot.z);
-		smooth = 2.0f;
+
 	}
 	
 	// Update is called once per frame
@@ -78,19 +89,19 @@ public class CutoutController : MonoBehaviour {
 	
 	void popUpAnim () 
 	{
-		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, popUpRotation, Time.deltaTime * smooth);
+		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, popUpRotation, Time.deltaTime * smooth * 7);
 	}
 	
 	void slideLeftAnim () {
-
+		transform.position = Vector3.Lerp (transform.position, leftEndPos, Time.deltaTime * smooth / 5);
 	}
 
 	void slideRightAnim () {
-		
+		transform.position = Vector3.Lerp (transform.position, rightEndPos, Time.deltaTime * smooth / 5);
 	}
 	
 	void beenShotAnim () {
 		enterTrigger = false;
-		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaultRot, Time.deltaTime * smooth);
+		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, downRotation, Time.deltaTime * smooth * 10);
 	}
 }
