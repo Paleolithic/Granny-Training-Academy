@@ -13,6 +13,8 @@ public class Shoot : MonoBehaviour {
 	float muzzleTimer;
 	bool shot;
 
+	public GameObject pistolObj;
+
 	//private Vector3 targetAngles;
 
 	// Use this for initialization
@@ -34,15 +36,21 @@ public class Shoot : MonoBehaviour {
 			shot = false;
 		}
 
+
+
 		if (Input.GetMouseButtonDown (0)) 
 		{
+			pistolObj.GetComponent<gunRecoil>().recoil += 0.1f;
+
 			//Creates rigidbody object from prefab
 			Rigidbody clone = Instantiate(projectile, transform.position, this.gameObject.transform.rotation) as Rigidbody;
+
+			//Always facing Z axis
+			//clone.transform.rotation = Quaternion.Euler(this.transform.rotation.x + 90f, this.transform.rotation.y, this.transform.rotation.z);
+
+			//Wanted
 			clone.transform.parent = this.transform;
 			clone.transform.localRotation = Quaternion.Euler(90, 0, 0);
-			//clone.transform.RotateAround (Vector3.zero, Vector3.up, 2 * Time.deltaTime);
-			//targetAngles = transform.eulerAngles + 180f * Vector3.up; // what the new angles should be
-			//clone.transform.eulerAngles = Vector3.Lerp(clone.transform.eulerAngles, targetAngles, Time.deltaTime); // lerp to new angles
 
 			//Pushed the object foward with forces
 			clone.AddForce(transform.forward * speed);
