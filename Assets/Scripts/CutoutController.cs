@@ -33,9 +33,9 @@ public class CutoutController : MonoBehaviour {
 		downRotation = transform.eulerAngles;
 		popUpRotation = new Vector3 (downRotation.x - 90, downRotation.y, downRotation.z);
 		smooth = 2.0f;
-		
-		leftEndPos = new Vector3 (transform.position.x - 2f, transform.position.y, transform.position.z);
-		rightEndPos = new Vector3 (transform.position.x + 2f, transform.position.y, transform.position.z);
+
+		leftEndPos = transform.position + transform.right*-2f;
+		rightEndPos = transform.position + transform.right*2f;
 
 		if (popUp) {
 			animationCase = 1;
@@ -93,11 +93,11 @@ public class CutoutController : MonoBehaviour {
 	}
 	
 	void slideLeftAnim () {
-		transform.position = Vector3.Lerp (transform.position, leftEndPos, Time.deltaTime * smooth);
+		transform.position = Vector3.Lerp (transform.position, leftEndPos , Time.deltaTime * smooth);
 	}
 
 	void slideRightAnim () {
-		transform.position = Vector3.Lerp (transform.position, rightEndPos, Time.deltaTime * smooth);
+		transform.position = Vector3.Lerp (transform.position, rightEndPos , Time.deltaTime * smooth);
 	}
 	
 	void beenShotAnim () {
