@@ -42,7 +42,7 @@ public class AreaTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//area clear check
-		if (enemyKillCount = enemyAreaTotal) {
+		if (enemyKillCount == enemyAreaTotal) {
 			areaClear = true;
 			triggerAreaClear = true;
 		}

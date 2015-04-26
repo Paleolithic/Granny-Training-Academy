@@ -10,8 +10,8 @@ public class Level : MonoBehaviour
 	GUIStyle fontDetails;
 	bool enter;
 
-	int enemyKillCount;
-	int civKillCount;
+	public int enemyKillCount;
+	public int civKillCount;
 
 	// Use this for initialization
 	void Start () 
