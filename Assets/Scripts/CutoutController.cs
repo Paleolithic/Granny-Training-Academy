@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class CutoutController : MonoBehaviour {
-	
+
+	public bool civilian;
+	public bool enemy;
+
 	public bool popUp;
 	public bool slideLeft;
 	public bool slideRight;
@@ -34,7 +37,7 @@ public class CutoutController : MonoBehaviour {
 		popUpRotation = new Vector3 (downRotation.x - 90, downRotation.y, downRotation.z);
 		smooth = 2.0f;
 
-		leftEndPos = transform.position + transform.right*-2f;
+		leftEndPos = transform.position - transform.right*2f;
 		rightEndPos = transform.position + transform.right*2f;
 
 		if (popUp) {
@@ -55,13 +58,17 @@ public class CutoutController : MonoBehaviour {
 		if (transform.parent.GetComponent<AreaTrigger> ().enter) {
 			enterTrigger = true;
 		}
-		if (beenShot) {
+		if (beenShot && firstHit) {
+			//call animation
 			beenShotAnim();
-		
-			if (firstHit) {
-				//get rid of hitbox (so cant be shot on ground)
-				gameObject.collider.enabled = false;
-				firstHit = false;
+			//get rid of hitbox (so cant be shot on ground)
+			gameObject.collider.enabled = false;
+			firstHit = false;
+			//send data up
+			if (enemy) {
+				transform.parent.GetComponent<AreaTrigger>().enemyKill();
+			} else if (civilian) {
+				transform.parent.GetComponent<AreaTrigger>().civKill();
 			}
 		}
 		if (enterTrigger) {
