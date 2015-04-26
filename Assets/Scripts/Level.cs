@@ -10,6 +10,8 @@ public class Level : MonoBehaviour
 	GUIStyle fontDetails;
 	bool enter;
 
+	int enemyKillCount;
+	int civKillCount;
 
 	// Use this for initialization
 	void Start () 
@@ -18,7 +20,8 @@ public class Level : MonoBehaviour
 		fontDetails = new GUIStyle ();
 		fontDetails.normal.textColor = Color.white;
 		fontDetails.fontSize = 20;
-
+		enemyKillCount = 0;
+		civKillCount = 0;
 	}
 	
 	// Update is called once per frame
@@ -33,14 +36,14 @@ public class Level : MonoBehaviour
 		//If the player entered the second room
 		else if (room2) 
 		{
+
 		}
 
 		//If the player entered the third room
 		else if (room3) 
 		{
-		}
 
-	
+		}
 	}
 
 	void OnGUI()
@@ -50,7 +53,10 @@ public class Level : MonoBehaviour
 			//GUI.DrawTexture(new Rect(Screen.width - 405, 5, 150, 100), clock, ScaleMode.ScaleToFit, true, 0.0f);
 			GUI.Label(new Rect(Screen.width - 350, 50, 350, 60), "WORKING", fontDetails);
 		}
-		
+
+		//gui label for "TIME: ??:??:??"
+		//gui label for "ENEMIES: ? / TOTAL"
+		//gui label for "CIVILIANS: ? / TOTAL"
 	}
 
 
