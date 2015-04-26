@@ -9,7 +9,7 @@ public class AreaTrigger : MonoBehaviour {
 	int civKillCount;
 
 	//for area clear prompt?
-	public int enemyAreaTotal;
+	int enemyAreaTotal;
 	bool areaClear;
 	bool triggerAreaClear;
 	GUIStyle fontStyle;
