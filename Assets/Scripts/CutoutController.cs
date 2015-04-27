@@ -58,17 +58,20 @@ public class CutoutController : MonoBehaviour {
 		if (transform.parent.GetComponent<AreaTrigger> ().enter) {
 			enterTrigger = true;
 		}
-		if (beenShot && firstHit) {
+		if (beenShot) {
 			//call animation
 			beenShotAnim();
-			//get rid of hitbox (so cant be shot on ground)
-			gameObject.collider.enabled = false;
-			firstHit = false;
-			//send data up
-			if (enemy) {
-				transform.parent.GetComponent<AreaTrigger>().enemyKill();
-			} else if (civilian) {
-				transform.parent.GetComponent<AreaTrigger>().civKill();
+
+			if (firstHit) {
+				//get rid of hitbox (so cant be shot on ground)
+				gameObject.collider.enabled = false;
+				firstHit = false;
+				//send data up
+				if (enemy) {
+					transform.parent.GetComponent<AreaTrigger>().enemyKill();
+				} else if (civilian) {
+					transform.parent.GetComponent<AreaTrigger>().civKill();
+				}
 			}
 		}
 		if (enterTrigger) {

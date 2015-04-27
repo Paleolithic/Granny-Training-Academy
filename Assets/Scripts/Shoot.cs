@@ -41,12 +41,11 @@ public class Shoot : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) 
 		{
 			pistolObj.GetComponent<gunRecoil>().recoil += 0.1f;
-
 			//Creates rigidbody object from prefab
 			Rigidbody clone = Instantiate(projectile, transform.position, this.gameObject.transform.rotation) as Rigidbody;
 
 			//Always facing Z axis
-			//clone.transform.rotation = Quaternion.Euler(this.transform.rotation.x + 90f, this.transform.rotation.y, this.transform.rotation.z);
+			//clone.transform.rotation = Quaternion.Euler(transform.parent.rotation.x + 90f, transform.parent.rotation.y, transform.parent.rotation.z);
 
 			//Wanted
 			clone.transform.parent = this.transform;
@@ -54,6 +53,8 @@ public class Shoot : MonoBehaviour {
 
 			//Pushed the object foward with forces
 			clone.AddForce(transform.forward * speed);
+
+			clone.transform.parent = null;
 
 			muzzleStart = Time.time;
 			MuzzleFlashObj.SetActive(true);
