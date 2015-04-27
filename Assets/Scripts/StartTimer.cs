@@ -40,7 +40,7 @@ public class StartTimer : MonoBehaviour
 		}
 
 		minutes = Time.time.ToString();*/
-		if (enter) 
+		if (enter && !isFinished) 
 		{
 			if (millisecondsf >= 100) 
 			{
@@ -71,7 +71,7 @@ public class StartTimer : MonoBehaviour
 
 	void OnGUI()
 	{
-		if(enter && !isFinished)
+		if(enter)
 		{
 			//GUI.DrawTexture(new Rect(Screen.width - 405, 5, 150, 100), clock, ScaleMode.ScaleToFit, true, 0.0f);
 			GUI.Label(new Rect(Screen.width - 350, 50, 350, 60), minutes + " : " + seconds + " . " + milliseconds, fontDetails);
