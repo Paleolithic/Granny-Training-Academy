@@ -50,7 +50,11 @@ public class CutoutController : MonoBehaviour {
 			animationCase = 3;
 		}
 
-		this.transform.parent.GetComponent<AreaTrigger> ().enemyAreaTotal += 1;
+		if (enemy) {
+			this.transform.parent.GetComponent<AreaTrigger> ().enemyAreaTotal += 1;
+		} else if (civilian) {
+			this.transform.parent.GetComponent<AreaTrigger> ().civAreaTotal += 1;
+		}
 	}
 	
 	// Update is called once per frame

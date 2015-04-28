@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Level : MonoBehaviour 
 {
@@ -10,11 +11,27 @@ public class Level : MonoBehaviour
 	public int enemyKillCount;
 	public int civKillCount;
 
+	public int enemyTotal;
+	public int civTotal;
+
+	public string milliseconds;
+	public string seconds;
+	public string minutes;
+
+	GUIStyle fontDetails;
+
 	// Use this for initialization
 	void Start () 
 	{
+		room1 = false;
+		room2 = false;
+		room3 = false;
 		enemyKillCount = 0;
 		civKillCount = 0;
+
+		fontDetails = new GUIStyle ();
+		fontDetails.normal.textColor = Color.white;
+		fontDetails.fontSize = 20;
 	}
 	
 	// Update is called once per frame
@@ -37,6 +54,17 @@ public class Level : MonoBehaviour
 		else if (room3) 
 		{
 
+		}
+
+	}
+
+	void OnGUI()
+	{
+		if (room1 || room2 || room3) 
+		{
+			GUI.Label (new Rect (Screen.width - 350, 50, 350, 60), minutes + " : " + seconds + " . " + milliseconds, fontDetails);
+			GUI.Label (new Rect (Screen.width - 350, 80, 350, 60), "Enemies: " + enemyKillCount + " / " + enemyTotal, fontDetails);
+			GUI.Label (new Rect (Screen.width - 350, 110, 350, 60), "Civilians: " + civKillCount + " / " + civTotal, fontDetails);
 		}
 	}
 

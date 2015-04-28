@@ -10,9 +10,12 @@ public class AreaTrigger : MonoBehaviour {
 
 	//for area clear prompt?
 	public int enemyAreaTotal;
+	public int civAreaTotal;
 	bool areaClear;
 	bool triggerAreaClear;
 	GUIStyle fontStyle;
+	bool firstTime;
+
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +28,8 @@ public class AreaTrigger : MonoBehaviour {
 		//current font style, need seperate for counters and area prompt?
 		fontStyle = new GUIStyle ();
 		fontStyle.normal.textColor = Color.red;
+		firstTime = true;
+
 	}
 
 	public void enemyKill() {
@@ -46,6 +51,15 @@ public class AreaTrigger : MonoBehaviour {
 			areaClear = true;
 			triggerAreaClear = true;
 		}
+
+		//Check if timer starts and is first time through
+		if (this.transform.parent.GetComponent<Level> ().room1 && firstTime) 
+		{
+			firstTime = false;
+			transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
+			transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
+		}
+
 	}
 
 	void OnGUI() {

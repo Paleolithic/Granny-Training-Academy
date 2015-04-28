@@ -4,7 +4,6 @@ using System.Collections;
 public class StartTimer : MonoBehaviour 
 {
 	public bool isFinished;
-	GUIStyle fontDetails;
 	bool enter;
 	string minutes;
 	string seconds;
@@ -14,38 +13,33 @@ public class StartTimer : MonoBehaviour
 	float millisecondsf;
 	float startTime;
 
+
 	// Use this for initialization
 	void Start () 
 	{
 		isFinished = false;
 		enter = false;
-		fontDetails = new GUIStyle ();
-		fontDetails.normal.textColor = Color.white;
-		fontDetails.fontSize = 20;
 		startTime = Time.time;
 		minutesf = 0f;
 		secondsf = 0f;
 		millisecondsf = 0f;
+	
 
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		/*millisecondsf -= (startTime - Time.time) * 100;
-
-		if((startTime - Time.time) % 60 == 0)
-		{
-			minutesf += 1.0f;
-		}
-
-		minutes = Time.time.ToString();*/
+		//If you have entered the tigger and you have not finished the level yet
 		if (enter && !isFinished) 
 		{
+			//Check if its been longer than 100 milliseconds
 			if (millisecondsf >= 100) 
 			{
+				//Check if its been longer than 59 seconds
 				if (secondsf >= 59) 
 				{
+					//Add to minutes if it has been 60 seconds the zero out seconds
 					minutesf++;
 					secondsf = 0;
 				} else if (secondsf <= 59) 
@@ -55,11 +49,14 @@ public class StartTimer : MonoBehaviour
 			
 				millisecondsf = 0;
 			}
-		
+		    
+			//Add to the millisecond counter using deltatime
 			millisecondsf += Time.deltaTime * 100;
 
+			//Convert all the floats to strings to print out
 			minutes = minutesf.ToString ();
 			seconds = secondsf.ToString ();
+			//If it has been less than 10 seconds make sure there is a zero in front
 			if(secondsf < 10)
 			{
 				seconds = 0 + seconds;
@@ -67,26 +64,22 @@ public class StartTimer : MonoBehaviour
 			milliseconds = millisecondsf.ToString ();
 			milliseconds = milliseconds.Substring(0, 1);
 		}
-	}
 
-	void OnGUI()
-	{
-		if(enter)
+		if (enter) 
 		{
-			//GUI.DrawTexture(new Rect(Screen.width - 405, 5, 150, 100), clock, ScaleMode.ScaleToFit, true, 0.0f);
-			GUI.Label(new Rect(Screen.width - 350, 50, 350, 60), minutes + " : " + seconds + " . " + milliseconds, fontDetails);
+			this.transform.parent.GetComponent<Level> ().milliseconds = milliseconds;
+			this.transform.parent.GetComponent<Level> ().seconds = seconds;
+			this.transform.parent.GetComponent<Level> ().minutes = minutes;
 		}
-		
-		//gui label for "TIME: ??:??:??"
-		//gui label for "ENEMIES: ? / TOTAL"
-		//gui label for "CIVILIANS: ? / TOTAL"
 	}
 	
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player") 
+		{
 			enter = true;
+			transform.parent.GetComponent<Level> ().room1 = true;
 		}
 	}
 }
