@@ -13,6 +13,9 @@ public class StartTimer : MonoBehaviour
 	float millisecondsf;
 	float startTime;
 
+	public float totalTime;
+	bool firstFinish;
+
 
 	// Use this for initialization
 	void Start () 
@@ -23,7 +26,7 @@ public class StartTimer : MonoBehaviour
 		minutesf = 0f;
 		secondsf = 0f;
 		millisecondsf = 0f;
-	
+		firstFinish = true;
 
 	}
 	
@@ -70,6 +73,13 @@ public class StartTimer : MonoBehaviour
 			this.transform.parent.GetComponent<Level> ().milliseconds = milliseconds;
 			this.transform.parent.GetComponent<Level> ().seconds = seconds;
 			this.transform.parent.GetComponent<Level> ().minutes = minutes;
+		}
+
+		if (isFinished && firstFinish) 
+		{
+			totalTime = Time.time - startTime;
+			this.transform.parent.GetComponent<Level> ().totalTime = totalTime;
+			firstFinish = false;
 		}
 	}
 	

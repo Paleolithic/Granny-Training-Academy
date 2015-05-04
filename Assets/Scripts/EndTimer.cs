@@ -19,8 +19,10 @@ public class EndTimer : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player") 
+		{
 			startTrigger.GetComponent<StartTimer>().isFinished = true;
+			this.transform.parent.GetComponent<Level> ().finished = true;
 		}
 	}
 }

@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour {
 	bool shot;
 
 	public GameObject pistolObj;
+	public GameObject fpc;
 
 	//private Vector3 targetAngles;
 
@@ -26,6 +27,7 @@ public class Shoot : MonoBehaviour {
 		muzzleTimer = 0.05f;
 		shot = false;
 		MuzzleFlashObj.SetActive(false);
+		fpc = GameObject.Find ("First Person Controller");
 	}
 	
 	// Update is called once per frame
@@ -64,6 +66,12 @@ public class Shoot : MonoBehaviour {
 		{
 			MainCamera.enabled = !MainCamera.enabled;
 			ScopeCamera.enabled = !ScopeCamera.enabled;
+		}
+
+		if (ScopeCamera.enabled) 
+		{
+			fpc.GetComponent<MouseLook>().sensitivityX = 1;
+			MainCamera.GetComponent<MouseLook>().sensitivityY = 1;
 		}
 
 
