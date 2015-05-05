@@ -22,9 +22,9 @@ public class Destroy : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		//If the bullet collides with something destroy it
-		if (collision.gameObject.tag == "cutOut") {
-			collision.gameObject.GetComponent<CutoutController> ().beenShot = true;
-		}
+		//if (collision.gameObject.tag == "cutOut") {
+		//	collision.gameObject.GetComponent<CutoutController> ().beenShot = true;
+		//}
 
 		//For Instatiating bulletHole texture..
 		//GameObject clone = Instantiate (pic, transform.position, transform.rotation) as GameObject;

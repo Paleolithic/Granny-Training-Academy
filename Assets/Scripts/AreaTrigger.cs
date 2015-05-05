@@ -8,6 +8,8 @@ public class AreaTrigger : MonoBehaviour {
 	int enemyKillCount;
 	int civKillCount;
 
+	public bool tutorialTrigger;
+
 	//for area clear prompt?
 	public int enemyAreaTotal;
 	public int civAreaTotal;
@@ -29,7 +31,6 @@ public class AreaTrigger : MonoBehaviour {
 		fontStyle = new GUIStyle ();
 		fontStyle.normal.textColor = Color.red;
 		firstTime = true;
-
 	}
 
 	public void enemyKill() {
@@ -52,14 +53,37 @@ public class AreaTrigger : MonoBehaviour {
 			triggerAreaClear = true;
 		}
 
-		//Check if timer starts and is first time through
-		if (this.transform.parent.GetComponent<Level> ().room1 && firstTime) 
-		{
-			firstTime = false;
-			transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
-			transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
-		}
+		if (!tutorialTrigger) {
+			//Check if timer starts and is first time through
+			if (this.transform.parent.GetComponent<Level> ().room1 == true)
+			{
+				if (this.transform.parent.GetComponent<Level> ().room1 && firstTime) 
+				{
+					firstTime = false;
+					transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
+					transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
+				}
+			}
+			else if (this.transform.parent.GetComponent<Level> ().room2 == true)
+			{
+				if (this.transform.parent.GetComponent<Level> ().room2 && firstTime) 
+				{
+					firstTime = false;
+					transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
+					transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
+				}
+			}
+			else if (this.transform.parent.GetComponent<Level> ().room3 == true)
+			{
+				if (this.transform.parent.GetComponent<Level> ().room3 && firstTime) 
+				{
+					firstTime = false;
+					transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
+					transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
+				}
+			}
 
+		}
 	}
 
 	void OnGUI() {

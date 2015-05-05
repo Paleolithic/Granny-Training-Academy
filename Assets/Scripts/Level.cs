@@ -41,7 +41,12 @@ public class Level : MonoBehaviour
 	public Texture2D darkStarTexture;
 	public Texture2D frameTexture;
 	int stars;
-	
+
+	public GameObject FPC;
+	public GameObject MC;
+	public GameObject SC;
+	public Camera MCC;
+	public GameObject spawn;
 
 
 	// Use this for initialization
@@ -124,34 +129,52 @@ public class Level : MonoBehaviour
 		}
 		if (finished) 
 		{
+			//Freeze Camera and Movement
+			FPC.GetComponent<MouseLook>().enabled = false;
+			FPC.GetComponent<CharacterMotor>().enabled = false;
+			if (MCC.enabled)
+			{
+				MC.GetComponent<MouseLook>().enabled = false;
+			}
+			else
+			{
+				SC.GetComponent<MouseLook>().enabled = false;
+			}
+			//Freeze Shooting
+			spawn.GetComponent<Shoot>().isFinished = true;
+
 			//Frame
-			//GUI.DrawTexture (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 200, 400, 400), frameTexture, ScaleMode.ScaleToFit, true, 0F);
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 396, Screen.height / 2 - 324, 792, 648), frameTexture, ScaleMode.StretchToFill, true, 0F);
 
 			//Text
-			GUI.Label (new Rect (Screen.width / 2, Screen.height / 2, 350, 60), minutes + " : " + seconds + " . " + milliseconds, fontDetails);
-			GUI.Label (new Rect (Screen.width / 2, Screen.height / 2 - 60, 350, 60), enemyKillCount + " / " + enemyTotal, fontDetails);
-			GUI.Label (new Rect (Screen.width / 2, Screen.height / 2 - 120, 350, 60), civKillCount + " / " + civTotal, fontDetails);
+			if(minutes == "0")
+			{
+				GUI.Label (new Rect (Screen.width / 2 + 145, Screen.height / 2 + 50, 350, 60), seconds + " . " + milliseconds, fontDetails);
+			}
+			else
+			{
+				GUI.Label (new Rect (Screen.width / 2 + 125, Screen.height / 2 + 50, 350, 60), minutes + " : " + seconds + " . " + milliseconds, fontDetails);
+			}
+
+			GUI.Label (new Rect (Screen.width / 2 + 145, Screen.height / 2 + 140, 350, 60), civKillCount + " / " + civTotal, fontDetails);
+			GUI.Label (new Rect (Screen.width / 2 + 145, Screen.height / 2 + 230, 350, 60), enemyKillCount + " / " + enemyTotal, fontDetails);
+
 
 			//Stars
 			if (stars == 1) 
 			{
-				GUI.DrawTexture (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 100, 60, 60), starTexture, ScaleMode.ScaleToFit, true, 0F);
-				//Empty
-				GUI.DrawTexture (new Rect (Screen.width / 2, Screen.height / 2 - 100, 60, 60), darkStarTexture, ScaleMode.ScaleToFit, true, 0F);
-				GUI.DrawTexture (new Rect (Screen.width / 2 + 100, Screen.height / 2 - 100, 60, 60), darkStarTexture, ScaleMode.ScaleToFit, true, 0F);
+				GUI.DrawTexture (new Rect (Screen.width / 2 - 165, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
 			}
 			if (stars == 2) 
 			{
-				GUI.DrawTexture (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 100, 60, 60), starTexture, ScaleMode.ScaleToFit, true, 0F);
-				GUI.DrawTexture (new Rect (Screen.width / 2, Screen.height / 2 - 100, 60, 60), starTexture, ScaleMode.ScaleToFit, true, 0F);
-				//Empty
-				GUI.DrawTexture (new Rect (Screen.width / 2 + 100, Screen.height / 2 - 100, 60, 60), darkStarTexture, ScaleMode.ScaleToFit, true, 0F);
+				GUI.DrawTexture (new Rect (Screen.width / 2 - 165, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
+				GUI.DrawTexture (new Rect (Screen.width / 2 - 22, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
 			}
 			if (stars == 3) 
 			{
-				GUI.DrawTexture (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 100, 60, 60), starTexture, ScaleMode.ScaleToFit, true, 0F);
-				GUI.DrawTexture (new Rect (Screen.width / 2, Screen.height / 2 - 100, 60, 60), starTexture, ScaleMode.ScaleToFit, true, 0F);
-				GUI.DrawTexture (new Rect (Screen.width / 2 + 100, Screen.height / 2 - 100, 60, 60), starTexture, ScaleMode.ScaleToFit, true, 0F);
+				GUI.DrawTexture (new Rect (Screen.width / 2 - 165, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
+				GUI.DrawTexture (new Rect (Screen.width / 2 - 22, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
+				GUI.DrawTexture (new Rect (Screen.width / 2 + 122, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
 			}
 		}
 
