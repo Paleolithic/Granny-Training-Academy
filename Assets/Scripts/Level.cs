@@ -107,6 +107,31 @@ public class Level : MonoBehaviour
 			//If the player entered the second room
 			else if (room2) 
 			{
+				//One Stars
+				oneStarNaziCount = 6;
+				
+				//Two Stars
+				twoStarNaziCount = 13;
+				twoStarTimer = 60;
+				twoStarCivCount = 3;
+				
+				//Three Stars
+				threeStarNaziCount = 20;
+				threesStarTimer = 40;
+				threeStarCivCount = 0;
+				
+				if(enemyKillCount >= oneStarNaziCount)
+				{
+					stars = 1;
+				}
+				if(enemyKillCount >= twoStarNaziCount && civKillCount <= twoStarCivCount && totalTime <= twoStarTimer)
+				{
+					stars = 2;
+				}
+				if(enemyKillCount >= threeStarNaziCount && civKillCount <= threeStarCivCount && totalTime <= threesStarTimer)
+				{
+					stars = 3;
+				}
 
 			}
 
