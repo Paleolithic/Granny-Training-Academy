@@ -72,7 +72,7 @@ public class Level : MonoBehaviour
 		{
 
 			//If the player entered the first room
-			/*if (room1) 
+			if (room1) 
 			{
 				//One Stars
 				oneStarNaziCount = 3;
@@ -102,10 +102,10 @@ public class Level : MonoBehaviour
 
 
 
-			}*/
+			}
 
 			//If the player entered the second room
-			if (room2) 
+			else if (room2) 
 			{
 				//One Stars
 				oneStarNaziCount = 6;
