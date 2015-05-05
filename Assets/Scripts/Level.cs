@@ -38,7 +38,7 @@ public class Level : MonoBehaviour
 	float threeStarCivCount;
 
 	public Texture2D starTexture;
-	public Texture2D darkStarTexture;
+	//public Texture2D darkStarTexture;
 	public Texture2D frameTexture;
 	int stars;
 
