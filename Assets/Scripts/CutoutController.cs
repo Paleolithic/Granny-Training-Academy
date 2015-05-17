@@ -23,7 +23,10 @@ public class CutoutController : MonoBehaviour {
 
 	Vector3 leftEndPos;
 	Vector3 rightEndPos;
-	
+
+	Vector3 originalPosition;
+	Quaternion originalRotation;
+
 	// Use this for initialization
 	void Start () {
 		animationCase = 0;
@@ -50,6 +53,44 @@ public class CutoutController : MonoBehaviour {
 			animationCase = 3;
 		}
 
+		if (enemy) {
+			this.transform.parent.GetComponent<AreaTrigger> ().enemyAreaTotal += 1;
+		} else if (civilian) {
+			this.transform.parent.GetComponent<AreaTrigger> ().civAreaTotal += 1;
+		}
+
+		originalPosition = transform.position;
+		originalRotation = transform.rotation;
+	}
+
+	public void Reset () {
+		transform.position = originalPosition;
+		transform.rotation = originalRotation;
+
+		animationCase = 0;
+		firstHit = true;
+		firstTrigger = true;
+		beenShot = false;
+		//cant be shot until triggered
+		gameObject.collider.enabled = false;
+		
+		downRotation = transform.eulerAngles;
+		popUpRotation = new Vector3 (downRotation.x - 90, downRotation.y, downRotation.z);
+		smooth = 2.0f;
+		
+		leftEndPos = transform.position - transform.right*2f;
+		rightEndPos = transform.position + transform.right*2f;
+		
+		if (popUp) {
+			animationCase = 1;
+		} else if (slideLeft) {
+			downRotation = new Vector3(transform.eulerAngles.x + 90, transform.eulerAngles.y, transform.eulerAngles.z);
+			animationCase = 2;
+		} else if (slideRight) {
+			downRotation = new Vector3(transform.eulerAngles.x + 90, transform.eulerAngles.y, transform.eulerAngles.z);
+			animationCase = 3;
+		}
+		
 		if (enemy) {
 			this.transform.parent.GetComponent<AreaTrigger> ().enemyAreaTotal += 1;
 		} else if (civilian) {

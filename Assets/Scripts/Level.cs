@@ -48,6 +48,8 @@ public class Level : MonoBehaviour
 	public Camera MCC;
 	public GameObject spawn;
 
+	GameObject[] cutOutArray;
+
 
 	// Use this for initialization
 	void Start () 
@@ -140,9 +142,67 @@ public class Level : MonoBehaviour
 			{
 
 			}
+
+
+
+
+
+			//END GAME STATE
+			if(finished)
+			{
+				if (Input.GetKeyDown("f")) 
+				{
+					finished = false;
+
+					//UnFreeze Camera and Movement
+					FPC.GetComponent<MouseLook>().enabled = true;
+					FPC.GetComponent<CharacterMotor>().enabled = true;
+					if (MCC.enabled)
+					{
+						MC.GetComponent<MouseLook>().enabled = true;
+					}
+					else
+					{
+						SC.GetComponent<MouseLook>().enabled = true;
+					}
+					//UnFreeze Shooting
+					spawn.GetComponent<Shoot>().isFinished = false;
+
+					if(room1)
+					{
+						GameObject level1 = GameObject.Find ("Left-Start-Trigger");
+						level1.GetComponent<StartTimer>().Start();
+
+					}
+					else if(room2)
+					{
+						GameObject level2 = GameObject.Find ("Middle-Start-Trigger");
+						level2.GetComponent<StartTimer>().Start();
+					}
+					else if(room3)
+					{
+					}
+
+					//Get all cutouts
+					cutOutArray = GameObject.FindGameObjectsWithTag("cutOut");
+					foreach(GameObject c in cutOutArray)
+					{
+						c.GetComponent<CutoutController>().Reset();
+					}
+
+					Start();
+
+					/*//Set all rooms to false
+					room1 = false;
+					room2 = false;
+					room3 = false;*/
+
+				}
+			}
 		}
 
 	}
+
 
 	void OnGUI()
 	{
@@ -167,6 +227,7 @@ public class Level : MonoBehaviour
 			}
 			//Freeze Shooting
 			spawn.GetComponent<Shoot>().isFinished = true;
+
 
 			//Frame
 			GUI.DrawTexture (new Rect (Screen.width / 2 - 396, Screen.height / 2 - 324, 792, 648), frameTexture, ScaleMode.StretchToFill, true, 0F);
@@ -201,6 +262,9 @@ public class Level : MonoBehaviour
 				GUI.DrawTexture (new Rect (Screen.width / 2 - 22, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
 				GUI.DrawTexture (new Rect (Screen.width / 2 + 122, Screen.height / 2 - 90, 90, 90), starTexture, ScaleMode.ScaleToFit, true, 0F);
 			}
+
+			//Draw "Presss F to continue"
+			GUI.Label (new Rect (Screen.width / 2 - 60, Screen.height - 185, 350, 60), "Press F to continue", fontDetails);
 		}
 
 
