@@ -76,6 +76,10 @@ public class Level : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (Input.GetKeyDown("i")) {
+			level3Unlock = true;
+		}
+
 		if (finished) 
 		{
 
