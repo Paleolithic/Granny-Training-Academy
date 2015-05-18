@@ -18,6 +18,8 @@ public class Shoot : MonoBehaviour {
 
 	public bool isFinished;
 
+	public bool able;
+
 	RaycastHit hitInfo;
 	int triggerLayerIgnore;
 	//private Vector3 targetAngles;
@@ -35,6 +37,7 @@ public class Shoot : MonoBehaviour {
 		isFinished = false;
 		triggerLayerIgnore = 1 << 8;
 		triggerLayerIgnore = ~triggerLayerIgnore;
+		able = true;
 	}
 	
 	// Update is called once per frame
@@ -91,7 +94,7 @@ public class Shoot : MonoBehaviour {
 				}
 			}
 		}
-		if (Input.GetMouseButtonDown (1)) 
+		if (Input.GetMouseButtonDown (1) && able) 
 		{
 			MainCamera.enabled = !MainCamera.enabled;
 			ScopeCamera.enabled = !ScopeCamera.enabled;

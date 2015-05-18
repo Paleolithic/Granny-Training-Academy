@@ -25,10 +25,11 @@ public class StartTimer : MonoBehaviour
 	{
 		isFinished = false;
 		enter = false;
-		startTime = Time.time;
+		startTime = 0;//Time.time;
 		minutesf = 0f;
 		secondsf = 0f;
 		millisecondsf = 0f;
+		totalTime = 0f;
 		firstFinish = true;
 
 		//barrier = GameObject.Find("Barriers");
@@ -93,6 +94,8 @@ public class StartTimer : MonoBehaviour
 			else if(this.gameObject.tag == "level3")
 			{
 			}
+
+
 		}
 
 		if (isFinished && firstFinish) 
@@ -109,7 +112,7 @@ public class StartTimer : MonoBehaviour
 		if (other.gameObject.tag == "Player") 
 		{
 			enter = true;
-			transform.parent.GetComponent<Level> ().room1 = true;
+			startTime = Time.time;
 		}
 	}
 }

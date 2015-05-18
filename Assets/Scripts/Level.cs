@@ -8,6 +8,10 @@ public class Level : MonoBehaviour
 	public bool room2;
 	public bool room3;
 
+	public bool room1Door;
+	public bool room2Door;
+	public bool room3Door;
+
 	public bool finished;
 
 	public int enemyKillCount;
@@ -19,6 +23,9 @@ public class Level : MonoBehaviour
 	public string milliseconds;
 	public string seconds;
 	public string minutes;
+
+	public bool level2Unlock = false;
+	public bool level3Unlock = false;
 
 	GUIStyle fontDetails;
 
@@ -40,7 +47,7 @@ public class Level : MonoBehaviour
 	public Texture2D starTexture;
 	//public Texture2D darkStarTexture;
 	public Texture2D frameTexture;
-	int stars;
+	public int stars;
 
 	public GameObject FPC;
 	public GameObject MC;
@@ -64,7 +71,6 @@ public class Level : MonoBehaviour
 		fontDetails = new GUIStyle ();
 		fontDetails.normal.textColor = Color.white;
 		fontDetails.fontSize = 20;
-		stars = 0;
 	}
 	
 	// Update is called once per frame
@@ -89,6 +95,10 @@ public class Level : MonoBehaviour
 				threesStarTimer = 40;
 				threeStarCivCount = 0;
 
+				if(enemyKillCount < oneStarNaziCount)
+				{
+					stars = 0;
+				}
 				if(enemyKillCount >= oneStarNaziCount)
 				{
 					stars = 1;
@@ -100,6 +110,7 @@ public class Level : MonoBehaviour
 				if(enemyKillCount >= threeStarNaziCount && civKillCount <= threeStarCivCount && totalTime <= threesStarTimer)
 				{
 					stars = 3;
+					level2Unlock = true;
 				}
 
 
@@ -107,7 +118,7 @@ public class Level : MonoBehaviour
 			}
 
 			//If the player entered the second room
-			else if (room2) 
+			if (room2) 
 			{
 				//One Stars
 				oneStarNaziCount = 6;
@@ -121,7 +132,11 @@ public class Level : MonoBehaviour
 				threeStarNaziCount = 21;
 				threesStarTimer = 40;
 				threeStarCivCount = 0;
-				
+
+				if(enemyKillCount < oneStarNaziCount)
+				{
+					stars = 0;
+				}
 				if(enemyKillCount >= oneStarNaziCount)
 				{
 					stars = 1;
@@ -133,6 +148,7 @@ public class Level : MonoBehaviour
 				if(enemyKillCount >= threeStarNaziCount && civKillCount <= threeStarCivCount && totalTime <= threesStarTimer)
 				{
 					stars = 3;
+					level3Unlock = true;
 				}
 
 			}
@@ -167,7 +183,11 @@ public class Level : MonoBehaviour
 					}
 					//UnFreeze Shooting
 					spawn.GetComponent<Shoot>().isFinished = false;
+					//UnFreeze Scoping
+					spawn.GetComponent<Shoot>().able = true;
 
+
+					//RESET -------------------------------------------------------
 					if(room1)
 					{
 						GameObject level1 = GameObject.Find ("Left-Start-Trigger");
@@ -197,11 +217,11 @@ public class Level : MonoBehaviour
 					}
 
 					Start();
-					/*//Set all rooms to false
+					//Set all rooms to false
 					room1 = false;
 					room2 = false;
-					room3 = false;*/
-
+					room3 = false;
+					// -------------------------------------------------------------
 				}
 			}
 		}
@@ -232,6 +252,8 @@ public class Level : MonoBehaviour
 			}
 			//Freeze Shooting
 			spawn.GetComponent<Shoot>().isFinished = true;
+			//Freeze Scoping
+			spawn.GetComponent<Shoot>().able = false;
 
 
 			//Frame
