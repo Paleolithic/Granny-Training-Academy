@@ -71,6 +71,7 @@ public class CutoutController : MonoBehaviour {
 		firstHit = true;
 		firstTrigger = true;
 		beenShot = false;
+		enterTrigger = false;
 		//cant be shot until triggered
 		gameObject.collider.enabled = false;
 		

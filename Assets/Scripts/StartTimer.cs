@@ -13,7 +13,7 @@ public class StartTimer : MonoBehaviour
 	float millisecondsf;
 	float startTime;
 
-	GameObject barrier;
+	public GameObject barrier;
 
 	public float totalTime;
 	bool firstFinish;
@@ -31,8 +31,8 @@ public class StartTimer : MonoBehaviour
 		millisecondsf = 0f;
 		firstFinish = true;
 
-		barrier = GameObject.Find("Barriers");
-		//barrier.SetActive (false);
+		//barrier = GameObject.Find("Barriers");
+		barrier.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -78,7 +78,7 @@ public class StartTimer : MonoBehaviour
 			this.transform.parent.GetComponent<Level> ().milliseconds = milliseconds;
 			this.transform.parent.GetComponent<Level> ().seconds = seconds;
 			this.transform.parent.GetComponent<Level> ().minutes = minutes;
-			barrier.SetActive(false);
+			barrier.SetActive(true);
 			//If the tagName is level...then set that to true in levelScript
 			if(this.gameObject.tag == "level1")
 			{
