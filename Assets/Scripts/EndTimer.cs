@@ -19,7 +19,6 @@ public class EndTimer : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		print ("Finished");
 		if (other.gameObject.tag == "Player") 
 		{
 			startTrigger.GetComponent<StartTimer>().isFinished = true;

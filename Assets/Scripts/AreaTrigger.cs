@@ -17,11 +17,10 @@ public class AreaTrigger : MonoBehaviour {
 	bool triggerAreaClear;
 	GUIStyle fontStyle;
 	bool firstTime;
-	bool firstCount = true;
 
 
 	// Use this for initialization
-	public void Start () {
+	void Start () {
 		enter = false;
 		enemyKillCount = 0;
 		civKillCount = 0;
@@ -54,13 +53,9 @@ public class AreaTrigger : MonoBehaviour {
 			triggerAreaClear = true;
 		}
 
-		if (!tutorialTrigger && firstCount) 
-		{
-			firstCount = false;
-			transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
-			transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
+		if (!tutorialTrigger) {
 			//Check if timer starts and is first time through
-			/*if (this.transform.parent.GetComponent<Level> ().room1 == true)
+			if (this.transform.parent.GetComponent<Level> ().room1 == true)
 			{
 				if (this.transform.parent.GetComponent<Level> ().room1 && firstTime) 
 				{
@@ -86,14 +81,14 @@ public class AreaTrigger : MonoBehaviour {
 					transform.parent.GetComponent<Level> ().enemyTotal += enemyAreaTotal;
 					transform.parent.GetComponent<Level> ().civTotal += civAreaTotal;
 				}
-			}*/
+			}
 
 		}
 	}
 
 	void OnGUI() {
 		if (areaClear && triggerAreaClear) {
-			GUI.Label(new Rect(Screen.width/2, Screen.height/2, 200, 60), "AREA CLEAR", fontStyle);
+			GUI.Label(new Rect(10, 10, 100, 20), "AREA CLEAR", fontStyle);
 			triggerAreaClear = false;
 		}
 	}
