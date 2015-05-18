@@ -118,7 +118,7 @@ public class Level : MonoBehaviour
 				twoStarCivCount = 3;
 				
 				//Three Stars
-				threeStarNaziCount = 20;
+				threeStarNaziCount = 21;
 				threesStarTimer = 40;
 				threeStarCivCount = 0;
 				
@@ -174,12 +174,12 @@ public class Level : MonoBehaviour
 						level1.GetComponent<StartTimer>().Start();
 
 					}
-					else if(room2)
+					if(room2)
 					{
 						GameObject level2 = GameObject.Find ("Middle-Start-Trigger");
 						level2.GetComponent<StartTimer>().Start();
 					}
-					else if(room3)
+					if(room3)
 					{
 					}
 
@@ -190,8 +190,13 @@ public class Level : MonoBehaviour
 						c.GetComponent<CutoutController>().Reset();
 					}
 
-					Start();
+					GameObject[] areaTriggers = GameObject.FindGameObjectsWithTag("areaTrigger");
+					foreach(GameObject a in areaTriggers)
+					{
+						a.GetComponent<AreaTrigger>().Start();
+					}
 
+					Start();
 					/*//Set all rooms to false
 					room1 = false;
 					room2 = false;
