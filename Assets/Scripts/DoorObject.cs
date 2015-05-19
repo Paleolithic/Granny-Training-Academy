@@ -61,11 +61,11 @@ public class DoorObject : MonoBehaviour {
 		if (transform.parent.GetComponent<Door> ().enter) {
 			if (transform.parent.transform.parent.GetComponent<Level>().room2Door == true) {
 				if (locked) {
-					GUI.Label (new Rect (Screen.width / 2 - 175, Screen.height / 2 - 30, 350, 60), "Complete Level 1 with 3 stars to unlock Level 2.");
+					GUI.Label (new Rect (Screen.width / 2 - 135, Screen.height / 2 + 60, 350, 60), "Complete Level 1 with 3 stars to unlock Level 2.");
 				}
 			} else if (transform.parent.transform.parent.GetComponent<Level>().room3Door == true) {
 				if (locked) {
-					GUI.Label (new Rect (Screen.width / 2 - 175, Screen.height / 2 - 30, 350, 60), "Complete Level 2 with 3 stars to unlock Level 3.");
+					GUI.Label (new Rect (Screen.width / 2 - 135, Screen.height / 2 + 60, 350, 60), "Complete Level 2 with 3 stars to unlock Level 3.");
 				}
 			}
 		}

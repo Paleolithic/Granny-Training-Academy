@@ -12,6 +12,9 @@ public class Level : MonoBehaviour
 	public bool room2Door;
 	public bool room3Door;
 
+	public GameObject level2Light;
+	public GameObject level3Light;
+
 	public bool finished;
 
 	public int enemyKillCount;
@@ -95,7 +98,7 @@ public class Level : MonoBehaviour
 				twoStarCivCount = 3;
 				
 				//Three Stars
-				threeStarNaziCount = 13;
+				threeStarNaziCount = 12;
 				threesStarTimer = 40;
 				threeStarCivCount = 0;
 
@@ -115,6 +118,7 @@ public class Level : MonoBehaviour
 				{
 					stars = 3;
 					level2Unlock = true;
+					level2Light.SetActive(true);
 				}
 
 
@@ -153,6 +157,7 @@ public class Level : MonoBehaviour
 				{
 					stars = 3;
 					level3Unlock = true;
+					level3Light.SetActive(true);
 				}
 
 			}
@@ -161,16 +166,16 @@ public class Level : MonoBehaviour
 			else if (room3) 
 			{
 				//One Stars
-				oneStarNaziCount = 6;
+				oneStarNaziCount = 10;
 				
 				//Two Stars
-				twoStarNaziCount = 13;
-				twoStarTimer = 60;
-				twoStarCivCount = 3;
+				twoStarNaziCount = 39;
+				twoStarTimer = 90;
+				twoStarCivCount = 10;
 				
 				//Three Stars
-				threeStarNaziCount = 21;
-				threesStarTimer = 40;
+				threeStarNaziCount = 49;
+				threesStarTimer = 45;
 				threeStarCivCount = 0;
 				
 				if(enemyKillCount < oneStarNaziCount)

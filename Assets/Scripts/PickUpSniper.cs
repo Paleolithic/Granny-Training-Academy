@@ -7,6 +7,7 @@ public class PickUpSniper : MonoBehaviour {
 	public GameObject pistol;
 	public GameObject sniperSpawn;
 	public GameObject sniper;
+	public GameObject particle;
 	bool enter;
 	GUIStyle fontDetails;
 	bool pickedUp;
@@ -29,6 +30,7 @@ public class PickUpSniper : MonoBehaviour {
 			sniperSpawn.SetActive(true);
 			sniper.SetActive(true);
 			this.gameObject.SetActive(false);
+			particle.SetActive(false);
 		}
 	}
 
