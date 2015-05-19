@@ -94,7 +94,7 @@ public class Shoot : MonoBehaviour {
 				}
 			}
 		}
-		if (Input.GetMouseButtonDown (1) && able) 
+		if (Input.GetMouseButtonDown (1) && able && this.gameObject.tag == "pistolPiece") 
 		{
 			MainCamera.enabled = !MainCamera.enabled;
 			ScopeCamera.enabled = !ScopeCamera.enabled;
