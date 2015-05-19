@@ -98,6 +98,7 @@ public class Shoot : MonoBehaviour {
 		{
 			MainCamera.enabled = !MainCamera.enabled;
 			ScopeCamera.enabled = !ScopeCamera.enabled;
+
 		}
 
 		if (ScopeCamera.enabled) 

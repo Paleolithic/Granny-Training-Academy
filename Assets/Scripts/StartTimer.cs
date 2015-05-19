@@ -93,6 +93,8 @@ public class StartTimer : MonoBehaviour
 			}
 			else if(this.gameObject.tag == "level3")
 			{
+				GameObject level3 = GameObject.Find ("Right-Level-3");
+				level3.GetComponent<Level>().room3 = true;
 			}
 
 

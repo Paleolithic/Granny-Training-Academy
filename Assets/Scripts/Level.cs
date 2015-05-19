@@ -160,7 +160,36 @@ public class Level : MonoBehaviour
 			//If the player entered the third room
 			else if (room3) 
 			{
-
+				//One Stars
+				oneStarNaziCount = 6;
+				
+				//Two Stars
+				twoStarNaziCount = 13;
+				twoStarTimer = 60;
+				twoStarCivCount = 3;
+				
+				//Three Stars
+				threeStarNaziCount = 21;
+				threesStarTimer = 40;
+				threeStarCivCount = 0;
+				
+				if(enemyKillCount < oneStarNaziCount)
+				{
+					stars = 0;
+				}
+				if(enemyKillCount >= oneStarNaziCount)
+				{
+					stars = 1;
+				}
+				if(enemyKillCount >= twoStarNaziCount && civKillCount <= twoStarCivCount && totalTime <= twoStarTimer)
+				{
+					stars = 2;
+				}
+				if(enemyKillCount >= threeStarNaziCount && civKillCount <= threeStarCivCount && totalTime <= threesStarTimer)
+				{
+					stars = 3;
+					level3Unlock = true;
+				}
 			}
 
 
@@ -205,6 +234,8 @@ public class Level : MonoBehaviour
 					}
 					if(room3)
 					{
+						GameObject level3 = GameObject.Find ("Right-Start-Trigger");
+						level3.GetComponent<StartTimer>().Start();
 					}
 
 					//Get all cutouts

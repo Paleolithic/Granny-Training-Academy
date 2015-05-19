@@ -12,6 +12,7 @@ public class CutoutController : MonoBehaviour {
 	int animationCase;
 
 	public bool beenShot;
+	public bool tree = false;
 
 	bool firstHit;
 	bool enterTrigger;
@@ -28,7 +29,8 @@ public class CutoutController : MonoBehaviour {
 	Quaternion originalRotation;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		animationCase = 0;
 		firstHit = true;
 		firstTrigger = true;
@@ -104,7 +106,7 @@ public class CutoutController : MonoBehaviour {
 		if (transform.parent.GetComponent<AreaTrigger> ().enter) {
 			enterTrigger = true;
 		}
-		if (beenShot) {
+		if (beenShot && !tree) {
 			//call animation
 			beenShotAnim();
 
