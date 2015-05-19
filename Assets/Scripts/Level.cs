@@ -79,8 +79,10 @@ public class Level : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		print (stars);
 		if (Input.GetKeyDown("i")) {
 			level3Unlock = true;
+			level3Light.SetActive(true);
 		}
 
 		if (finished) 
